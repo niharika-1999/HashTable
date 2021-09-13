@@ -55,13 +55,13 @@ public class HashTable<T1,T2> {
 		 temp=head;
 		 while(temp!=null)
 		 {
-			 if(temp.data==data)
+			 if(temp.data.equals(data))
 			 {
 				 count++;
 			 }
 			 temp=temp.next;
 		 }
-		 System.out.println("Frequency:"+ count);
+		 System.out.println("Frequency of '"+ data +"' is :"+ count);
 	 }
 	 
 	 public Boolean Empty() //Empty method used to check if head is null,returns true i.e list is empty 
@@ -84,11 +84,9 @@ public class HashTable<T1,T2> {
 		 {
 			 while(temp_node.next!=null)
 			 {
-				 System.out.print(temp_node.data+":\n");
 				 frequency(temp_node.data);
 				 temp_node=temp_node.next;
 			 }
-			 System.out.println(temp_node.data);
 			 frequency(temp_node.data);
 		 }
 		 else

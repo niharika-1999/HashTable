@@ -4,14 +4,15 @@ public class HashTableTest {
 	public static void main(String[] args) // Main method
 	{
 		HashTable<Integer,String> hash = new HashTable<Integer,String>();
-		hash.insertNode(1,"To");
-		hash.insertNode(2,"be");
-		hash.insertNode(3,"or");
-		hash.insertNode(4,"not");
-		hash.insertNode(5,"to");
-		hash.insertNode(6,"be");
+		String phrase ="Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
+		String[] words=phrase.toLowerCase().split(" ");
+		int i=0;
+		for(String phrase_word:words)
+		{
+			i++;
+			hash.insertNode(i,phrase_word);
+		}
 		hash.display();
-		
 	}
 
 }
