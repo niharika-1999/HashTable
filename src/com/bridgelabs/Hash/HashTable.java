@@ -7,7 +7,7 @@ package com.bridgelabs.Hash;
  */
 
 public class HashTable<T1,T2> {
-	Node<T1,T2>head=null,temp,current;
+	Node<T1,T2>head=null,current,temp;
 	
 	class Node<T1,T2> //Class node constructor to create node
 	{
@@ -48,20 +48,25 @@ public class HashTable<T1,T2> {
     	 
      }
 	 
-	 public void frequency(T2 data) //frequency method used to check the number of times data present in LinkedList
+	 public void remove(T2 data) //remove method used to delete a data from linked list
 	 {
-		 int count;
-		 count=0;
-		 temp=head;
+		 current=head;
+		 temp=current.next;
+		 if(current.data.equals(data))
+		 {
+			 head=current.next;
+		 }
 		 while(temp!=null)
 		 {
 			 if(temp.data.equals(data))
 			 {
-				 count++;
+				 current.next=temp.next;
+				 System.out.println("Removed the word '"+ temp.data +"' from the phrase");
 			 }
 			 temp=temp.next;
+			 current=current.next;
 		 }
-		 System.out.println("Frequency of '"+ data +"' is :"+ count);
+		 display();
 	 }
 	 
 	 public Boolean Empty() //Empty method used to check if head is null,returns true i.e list is empty 
@@ -79,15 +84,15 @@ public class HashTable<T1,T2> {
 	 
 	 public void display() //Display the content of linked list
 	 {
-		 Node<T1,T2> temp_node=head;
+		 temp=head;
 		 if(!Empty())
 		 {
-			 while(temp_node.next!=null)
+			 while(temp.next!=null)
 			 {
-				 frequency(temp_node.data);
-				 temp_node=temp_node.next;
+				 System.out.print(temp.data + " ");
+				 temp=temp.next;
 			 }
-			 frequency(temp_node.data);
+			 System.out.println(temp.data + " ");
 		 }
 		 else
 		 {

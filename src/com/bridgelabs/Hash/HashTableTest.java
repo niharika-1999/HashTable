@@ -13,6 +13,7 @@ public class HashTableTest {
 			hash.insertNode(i,phrase_word);
 		}
 		hash.display();
+		hash.remove("avoidable");
 	}
 
 }
